@@ -1,20 +1,21 @@
-package main
+package auth
 
 import (
 	"fmt"
 	"log"
-
-	"github.com/blinderjay/Godrive/auth"
+	"testing"
 )
 
-func main() {
+//export goauth
+func TestGetService(t *testing.T) {
 
 	// If modifying these scopes, delete your previously saved token.json.
 
-	srv, err := auth.GetService()
+	srv, err := GetService()
 	if err != nil {
 		log.Fatalln(err)
 	}
+
 	r, err := srv.Files.List().PageSize(35).Fields("nextPageToken, files(id, name)").Do()
 	if err != nil {
 		log.Fatalln(err)

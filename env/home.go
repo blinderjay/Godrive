@@ -10,8 +10,6 @@ import (
 	"strings"
 )
 
-
-
 func Home() (string, error) {
 	user, err := user.Current()
 	if nil == err {
